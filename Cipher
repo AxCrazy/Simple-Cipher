@@ -1,0 +1,42 @@
+using System;
+
+namespace Cipher
+{
+	class MainClass
+	{
+		public static void Main (string[] args)
+		{
+			Console.WriteLine ("CharApp");
+
+			string s = "Here is a new code cHallenge...";
+			Console.WriteLine (s);
+
+			char[] c = s.ToCharArray ();
+
+			encrypt (c, 259);
+			s = new string (c);
+			Console.WriteLine (s);
+
+			encrypt (c, -255);
+			s = new string (c);
+			Console.WriteLine (s);
+
+			encrypt (c, 256);
+			s = new string (c);
+			Console.WriteLine (s);
+
+
+			Console.Write ("\nPress RETURN to continue");
+			Console.Read ();
+
+		}
+
+		private static void encrypt (char[] plain, int shift)
+		{
+			for (int i = 0; i < plain.Length; ++i) {
+				plain [i] = (char)(plain [i] + shift);
+			}
+		}
+	}
+}
+
